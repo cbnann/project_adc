@@ -3,95 +3,10 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-E:\À¶ÑÀ4.0\project_adc\examples\ble_peripheral\ble_app_uart\pca10028\arm4\ble_app_uart_s110_pca10028.uvproj
-Project File Date:  07/05/2016
+G:\bluetooth\project_adc\examples\ble_peripheral\ble_app_uart\pca10028\arm4\ble_app_uart_s110_pca10028.uvproj
+Project File Date:  07/06/2016
 
 <h2>Output:</h2>
-Build target 'nrf51422_xxac_s110'
-linking...
-Program Size: Code=10352 RO-data=328 RW-data=156 ZI-data=3444  
-FromELF: creating hex file...
-".\_build\nrf51422_xxac_s110.axf" - 0 Error(s), 0 Warning(s).
-Load "E:\\À¶ÑÀ4.0\\project_adc\\examples\\ble_peripheral\\ble_app_uart\\pca10028\\arm4\\_build\\nrf51422_xxac_s110.axf" 
-* JLink Info: Device "UNSPECIFIED" selected (0 KB flash, 0 KB RAM).
-Set JLink Project File to "E:\À¶ÑÀ4.0\project_adc\examples\ble_peripheral\ble_app_uart\pca10028\arm4\JLinkSettings.ini"
-* JLink Info: Device "UNSPECIFIED" selected (0 KB flash, 0 KB RAM).
- 
-JLink info:
-------------
-DLL: V4.80g, compiled Feb 13 2014 20:50:02
-Firmware: J-Link V9 compiled Oct  9 2015 20:34:47
-Hardware: V9.20
-Feature(s) : GDB, RDI, FlashBP, FlashDL, JFlash 
- 
-* JLink Info: Found SWD-DP with ID 0x0BB11477
-* JLink Info: Found Cortex-M0 r0p0, Little endian.
-* JLink Info: FPUnit: 4 code (BP) slots and 0 literal slots
-ROMTableAddr = 0xE00FF003
- 
-Target info:
-------------
-Device: nRF51422_xxAC
-VTarget = 3.300V
-State of Pins: 
-TCK: 0, TDI: 0, TDO: 0, TMS: 1, TRES: 1, TRST: 0
-Hardware-Breakpoints: 4
-Software-Breakpoints: 8192
-Watchpoints:          2
-JTAG speed: 2000 kHz
- 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...
 </pre>
 </body>
 </html>
-ing nrf_delay.c...
-compiling nrf_adc.c...
-compiling app_button.c...
-compiling app_error.c...
-compiling app_fifo.c...
-compiling app_gpiote.c...
-compiling app_timer.c...
-compiling retarget.c...
-compiling softdevice_handler.c...
-".\_build\nrf51422_xxac_s110.axf" - 2 Error(s), 4 Warning(s).
-Target not created
-compiling main.c...
-..\..\main.c(185): warning:  #177-D: variable "err_code" was declared but never referenced
-          uint32_t err_code;
-..\..\main.c(537): error:  #167: argument of type "uint8_t *" is incompatible with parameter of type "uint8_t"
-        err_code = ble_lbs_on_adc_send(&m_adc,&adc_sample);
-..\..\main.c(90): warning:  #177-D: variable "data_array" was declared but never referenced
-  static uint8_t data_array[20];
-..\..\main.c(91): warning:  #550-D: variable "index" was set but never used
-  static uint8_t index = 0;
-..\..\main.c(586): warning:  #177-D: function "timers_start" was declared but never referenced
-  static void timers_start(void)
-..\..\main.c: 4 warnings, 1 error
-"..\..\main.c" - 1 Error(s), 4 Warning(s).
-compiling main.c...
-..\..\main.c(185): warning:  #177-D: variable "err_code" was declared but never referenced
-          uint32_t err_code;
-..\..\main.c(537): error:  #167: argument of type "uint8_t *" is incompatible with parameter of type "uint8_t"
-        err_code = ble_lbs_on_adc_send(&m_adc,&adc_sample);
-..\..\main.c(90): warning:  #177-D: variable "data_array" was declared but never referenced
-  static uint8_t data_array[20];
-..\..\main.c(91): warning:  #550-D: variable "index" was set but never used
-  static uint8_t index = 0;
-..\..\main.c(586): warning:  #177-D: function "timers_start" was declared but never referenced
-  static void timers_start(void)
-..\..\main.c: 4 warnings, 1 error
-"..\..\main.c" - 1 Error(s), 4 Warning(s).
-compiling main.c...
-..\..\main.c(185): warning:  #177-D: variable "err_code" was declared but never referenced
-          uint32_t err_code;
-..\..\main.c(91): warning:  #177-D: variable "index" was declared but never referenced
-  static uint8_t index = 0;
-..\..\main.c(576): warning:  #177-D: function "timers_start" was declared but never referenced
-  static void timers_start(void)
-..\..\main.c(591): warning: C4017W: err_code may be used before being set
-    uint32_t err_code;
-..\..\main.c: 4 warnings, 0 errors
-"..\..\main.c" - 0 Error(s), 4 Warning(s).

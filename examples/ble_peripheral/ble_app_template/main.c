@@ -101,6 +101,7 @@ static ble_adc_t                        m_adc;
 
 #define UART_TX_BUF_SIZE 256 /**< UART TX buffer size. */
 #define UART_RX_BUF_SIZE 1   /**< UART RX buffer size. */
+static int16_t adc_getResult;
 static uint16_t adc_sample;
 static uint8_t data_array[20];
 static uint8_t index = 0;
@@ -143,12 +144,18 @@ static void adc_get_handler(void * p_context)
 	
 			//nrf_adc_conversion_event_clean();
 	
-			adc_sample = nrf_adc_result_get();
+			adc_getResult = nrf_adc_result_get();//得到有符号16位
+			adc_sample = adc_getResult;//强转
+			trace_log("adc_getResult=%d\r\n",adc_getResult);
+			trace_log("adc_sample=%d\r\n",adc_sample);
+	
 	    data_array[0] = adc_sample;
 	    data_array[1] = adc_sample>>8;
+	
 	    for(int i=0;i<2;i++)
 			{
 					ble_lbs_on_adc_send(&m_adc,data_array[i]);
+					trace_log("data_array[i]=%d\r\n",data_array[i]);
 			}
 //		printf("%d\r\n", (int)adc_sample); // out ADC result
 //	  if(index > 3)
@@ -741,6 +748,7 @@ int main(void)
     conn_params_init();
     sec_params_init();
 
+	
     // Start execution
     timers_start();
     advertising_start();
@@ -753,6 +761,17 @@ int main(void)
         power_manage();
 			
     }
+}
+
+
+void HardFault_Handler(void)
+{
+#ifdef DEBUG
+	trace_log("HardFault_Handler\r\n");
+	while(1);
+#else
+	NVIC_SystemReset();
+#endif	
 }
 
 /**

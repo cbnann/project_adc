@@ -197,7 +197,7 @@ static void nus_data_handler(ble_nus_t * p_nus, uint8_t * p_data, uint16_t lengt
 }
 /**@snippet [Handling the data received over BLE] */
 
-static void adc_write_handler(ble_adc_t * p_nus, uint8_t * p_data, uint16_t length)
+static void data_handler(ble_adc_t * p_nus, uint8_t * p_data, uint16_t length)
 {
 		;
 }
@@ -217,7 +217,7 @@ static void services_init(void)
     err_code = ble_nus_init(&m_nus, &nus_init);
     APP_ERROR_CHECK(err_code);
 	
-	  init.data_handler = adc_write_handler;
+	  init.data_handler = data_handler;
     
     err_code = ble_adc_init(&m_adc, &init);
     APP_ERROR_CHECK(err_code);

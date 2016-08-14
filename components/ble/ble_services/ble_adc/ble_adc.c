@@ -2,12 +2,13 @@
 #include <string.h>
 #include "nordic_common.h"
 #include "ble_srv_common.h"
+#include "trace_uart.h"
 
-#define BLE_UUID_ADC_TX_CHARACTERISTIC 0x0002 
+//#define BLE_UUID_ADC_TX_CHARACTERISTIC 0x0002 
 
 #define BLE_ADC_MAX_TX_CHAR_LEN        BLE_ADC_MAX_DATA_LEN        /**< Maximum length of the TX Characteristic (in bytes). */
 
-#define ADC_BASE_UUID                  {{0x9E, 0xCA, 0xDC, 0x24, 0x0E, 0xE5, 0xA9, 0xE0, 0x93, 0xF3, 0xA3, 0xB5, 0x00, 0x00, 0x40, 0x6E}} /**< Used vendor specific UUID. */
+//#define ADC_BASE_UUID                  {{0x9E, 0xCA, 0xDC, 0x24, 0x0E, 0xE5, 0xA9, 0xE0, 0x93, 0xF3, 0xA3, 0xB5, 0x00, 0x00, 0x40, 0x6E}} /**< Used vendor specific UUID. */
 
 static void on_connect(ble_adc_t * p_adc, ble_evt_t * p_ble_evt)
 {
@@ -152,7 +153,9 @@ uint32_t ble_adc_init(ble_adc_t * p_adc, const ble_adc_init_t * p_adc_init)
     }	
 		
 		ble_uuid.type = p_adc->uuid_type;
+		trace_log("\r\nble_uuid.type=%d\r\n",ble_uuid.type);
     ble_uuid.uuid = ADC_UUID_SERVICE;
+		
 		
 		err_code = sd_ble_gatts_service_add(BLE_GATTS_SRVC_TYPE_PRIMARY, &ble_uuid, &p_adc->service_handle);
     if (err_code != NRF_SUCCESS)
